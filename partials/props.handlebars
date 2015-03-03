@@ -1,7 +1,11 @@
 <div id="property_{{name}}" class="property item{{#if access}} {{access}}{{/if}}{{#if deprecated}} deprecated{{/if}}{{#if extended_from}} inherited{{/if}}">
-    <h3 class="name"><code>{{name}}</code></h3>
-    <span class="type">{{#crossLink type}}{{/crossLink}}</span>
 
+<div class="panel panel-warning">
+  <div class="panel-heading">
+    <span class="panel-title">{{name}}</span>
+  </div>
+  <div class="panel-body">
+<span class="type">{{#crossLink type}}{{/crossLink}}</span>
     {{#if deprecated}}
         <span class="flag deprecated"{{#if deprecationMessage}} title="{{deprecationMessage}}"{{/if}}>deprecated</span>
     {{/if}}
@@ -117,3 +121,8 @@
         </ul>
     {{/if}}
 </div>
+
+  </div>
+</div>
+
+

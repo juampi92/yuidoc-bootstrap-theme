@@ -1,34 +1,8 @@
-/*
- * Custom styles for the YUIDoc Bootstrap Theme
- * Authors: kevinlacotaco
- *          tonybaroneee
- */
+/* -- SideBar -------------------------------------------------------- */
 
-/* -- Navigation Bar -------------------------------------------------------- */
-
-.navbar .navbar-inner .brand {
-    height: 40px;
-    margin: 0;
-    padding: 0 5px 0 10px;
-    cursor: default;
+input[type="search"] {
+    margin: 5px 0px 5px 0px;
 }
-
-.navbar-text {
-    font-size: 12px;
-    padding-left: 5px;
-    cursor: default;
-}
-
-.navbar-form {
-    margin-right: 3px;
-}
-
-#options-form {
-    margin-top: 20px;
-    padding-right: 20px;
-}
-
-/* -- Sidebar --------------------------------------------------------------- */
 
 #sidebar .tab-content {
     border: 1px solid #DFDFDF;
@@ -39,40 +13,39 @@
     border-radius: 0 0 4px 4px;
 }
 
-#api-tabview-filter input {
-    width: 94.5%;
+/* -- Header -------------------------------------------------------- */
+
+.navbar.navbar-inverse {
+    border-radius: 0px;
 }
 
-#sidebar .tab-pane li a {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+
+/* -- General -------------------------------------------------------- */
+.panel-title {
+    display: inline;
+    font-size: 16px;
+    font-weight: 700;
+    color: #c7254e;
+    background-color: #f9f2f4;
 }
 
-#sidebar .tab-pane li a:hover,
-#sidebar .tab-pane li a:focus {
-    outline: 0;
-    border: 0;
-    text-decoration: none;
-    color: #ffffff;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
-    background-color: #0088cc;
+.args {
+    display: inline;
 }
 
-/* -- Content --------------------------------------------------------------- */
-
-#docs-main {
-    margin-top: 65px;
+.arg + .arg:before {
+    content: ",";
 }
 
-.content {
-    padding-bottom: 50px;
+p {
+    margin: 0px;
 }
 
-.content .page-header h1 small {
-    padding-left: 5px;
-}
-
-.content .well:not(.moduledesc) p {
-    margin: 9px 0;
+.methods,
+.events,
+.attrs,
+.properties {
+    display: inline-table;
+    max-width: 400px;
+    margin-right: 10px;
 }

@@ -51,20 +51,21 @@
         </p>
     </div>
 {{/if}}
-
+{{#if classDescription}}
 <div class="well well-small">
     {{{classDescription}}}
 </div>
+{{/if}}
 
 {{#is_constructor}}
     <div class="constructor">
         <h2>Constructor</h2>
-        {{>method}}
+{{>method}}
     </div>
 {{/is_constructor}}
 
 <div>
-    <ul class="nav nav-tabs">
+    <ul class="nav nav-pills">
         <li class="active"><a data-toggle="tab" href="#index">Index</a></li>
 
         {{#if methods}}
@@ -86,34 +87,29 @@
             <h2 class="off-left">Item Index</h2>
 
             {{#if methods}}
-                <div class="index-section methods">
-                    <h3>Methods</h3>
-
-                    <ul class="index-list methods{{#if extends}} extends{{/if}}">
+                <div class="list-group methods">
+                    <div class="list-group-item list-group-item-info">Methods</div>
                         {{#methods}}
-                            <li class="index-item method{{#if access}} {{access}}{{/if}}{{#if deprecated}} deprecated{{/if}}{{#if overwritten_from}} inherited{{/if}}{{#if extended_from}} inherited{{/if}}">
-                                <a href="#" data-tabid="#methods" data-anchor="#method_{{name}}" data-tablink="{{name}}">{{name}}</a>
+                                <a class="list-group-item" href="#" data-tabid="#methods" data-anchor="#method_{{name}}" data-tablink="{{name}}">
+                                <span class="glyphicon glyphicon-chevron-right"></span> {{name}}
 
                                 {{#if static}}
                                     <span class="flag static">static</span>
                                 {{/if}}
                                 {{#if deprecated}}
-                                    <span class="flag deprecated">deprecated</span>
+                                    <span class="label label-danger">deprecated</span>
                                 {{/if}}
-                            </li>
+                            </a>
                         {{/methods}}
-                    </ul>
                 </div>
             {{/if}}
 
             {{#if properties}}
-                <div class="index-section properties">
-                    <h3>Properties</h3>
-
-                    <ul class="index-list properties{{#if extends}} extends{{/if}}">
+                <div class="list-group properties">
+                    <div class="list-group-item list-group-item-warning">Properties</div>
                         {{#properties}}
-                            <li class="index-item property{{#if access}} {{access}}{{/if}}{{#if deprecated}} deprecated{{/if}}{{#if overwritten_from}} inherited{{/if}}{{#if extended_from}} inherited{{/if}}">
-                                <a href="#" data-tabid="#properties" data-anchor="#property_{{name}}" data-tablink="{{name}}">{{name}}</a>
+                          <a class="list-group-item" href="#" data-tabid="#properties" data-anchor="#property_{{name}}" data-tablink="{{name}}">
+                                <span class="glyphicon glyphicon-chevron-right"></span> {{name}}
 
                                 {{#if static}}
                                     <span class="flag static">static</span>
@@ -121,34 +117,26 @@
                                 {{#if deprecated}}
                                     <span class="flag deprecated">deprecated</span>
                                 {{/if}}
-                            </li>
+                            </a>
                         {{/properties}}
-                    </ul>
                 </div>
             {{/if}}
 
             {{#if attrs}}
-                <div class="index-section attrs">
-                    <h3>Attributes</h3>
-
-                    <ul class="index-list attrs{{#if extends}} extends{{/if}}">
+                <div class="list-group attrs">
+                    <div class="list-group-item list-group-item-danger">Attributes</div>
                         {{#attrs}}
-                            <li class="index-item attr{{#if access}} {{access}}{{/if}}{{#if deprecated}} deprecated{{/if}}{{#if overwritten_from}} inherited{{/if}}{{#if extended_from}} inherited{{/if}}">
-                                <a href="#" data-tabid="#attrs" data-anchor="#attr_{{name}}" data-tablink="{{name}}">{{name}}</a>
-                            </li>
+                          <a class="list-group-item" href="#" data-tabid="#attrs" data-anchor="#attr_{{name}}" data-tablink="{{name}}"><span class="glyphicon glyphicon-chevron-right"></span> {{name}}</a>
                         {{/attrs}}
-                    </ul>
+                    </div>
                 </div>
             {{/if}}
 
             {{#if events}}
                 <div class="index-section events">
-                    <h3>Events</h3>
-
-                    <ul class="index-list events{{#if extends}} extends{{/if}}">
+                    <div class="list-group-item list-group-item-success">Events</div>
                         {{#events}}
-                            <li class="index-item event{{#if access}} {{access}}{{/if}}{{#if deprecated}} deprecated{{/if}}{{#if overwritten_from}} inherited{{/if}}{{#if extended_from}} inherited{{/if}}">
-                                <a href="#" data-tabid="#events" data-anchor="#event_{{name}}" data-tablink="{{name}}">{{name}}</a>
+                                <a class="list-group-item" href="#" data-tabid="#events" data-anchor="#event_{{name}}" data-tablink="{{name}}"><span class="glyphicon glyphicon-chevron-right"></span> {{name}}
 
                                 {{#if static}}
                                     <span class="flag static">static</span>
@@ -156,10 +144,9 @@
                                 {{#if deprecated}}
                                     <span class="flag deprecated">deprecated</span>
                                 {{/if}}
-                            </li>
+                                </a>
                         {{/events}}
-                    </ul>
-                </div>
+                   </div>
             {{/if}}
         </div>
 
@@ -168,7 +155,7 @@
                 <h2 class="off-left">Methods</h2>
 
                 {{#methods}}
-                    {{>method}}
+{{>method}}
                 {{/methods}}
             </div>
         {{/if}}

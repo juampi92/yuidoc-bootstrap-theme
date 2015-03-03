@@ -2,50 +2,51 @@
     <h1>{{name}} <small>Module</small></h1>
 </div>
 
-<div class="clearfix well well-small">
-    {{#extra}}
-        {{#selleck}}
-            <a class="button link-docs" href="/yui/docs/{{name}}">User Guide &amp; Examples</a>
-        {{/selleck}}
-    {{/extra}}
+{{#if foundAt}}
+    <div class="foundat">
+        Defined in:<code><a href="{{foundAt}}">`{{{file}}}:{{{line}}}`</a></code>
+    </div><br>
+{{/if}}
 
-    {{#if requires}}
-        <div class="uses">
-            Requires
-            <ul class="inline commas">
+{{#if requires}}
+    <div class="clearfix well well-small">
+       {{#if requires}}
+            <div class="uses">
+                <strong>Requires</strong>
                 {{#requires}}
-                    <li>{{#crossLinkModule .}}{{/crossLinkModule}}</li>
+                    <span class="label label-primary">{{#crossLinkModule .}}{{/crossLinkModule}}</span>
                 {{/requires}}
-            </ul>
-        </div>
-    {{/if}}
+            </div>
+        {{/if}}
 
-    {{#if foundAt}}
-        <div class="foundat">
-            Defined in: <a href="{{foundAt}}">`{{{file}}}:{{{line}}}`</a>
-        </div>
-    {{/if}}
-
-    {{#if since}}
-        <p>Available since {{since}}</p>
-    {{/if}}
-</div>
+        {{#if since}}
+            <p><strong>Available since</strong> {{since}}</p>
+        {{/if}}
+    </div>
+{{/if}}
 
 {{#if deprecated}}
-    <div class="well well-small">
-        <p>
-        {{#if deprecationMessage}}
-            <strong>Deprecated:</strong> {{deprecationMessage}}
-        {{else}}
-            This module is deprecated.
-        {{/if}}
-        </p>
-    </div>
+<div class="alert alert-danger">
+    {{#if deprecationMessage}}
+        <strong>Deprecated</strong>
+        {{deprecationMessage}}
+    {{else}}
+        This module is deprecated.
+    {{/if}}
+</div>
 {{/if}}
 
 <div class="moduledesc well well-small">
     {{{moduleDescription}}}
 </div>
+
+{{#extra}}
+    {{#selleck}}
+      <div class="moduledesc well well-small">
+        <a class="button link-docs" href="/yui/docs/{{name}}">User Guide &amp; Examples</a>
+      </div>
+    {{/selleck}}
+{{/extra}}
 
 {{#example}}
     <div class="example">
@@ -59,17 +60,17 @@
 <div class="yui3-g">
     <div class="yui3-u-1-2">
         {{#if moduleClasses}}
-            <p>This module provides the following classes:</p>
-
-            <ul class="module-classes">
+            <div class="list-group">
+                <div class="list-group-item list-group-item-success">
+                    Classes:
+                </div>
             {{#moduleClasses}}
-                <li class="module-class">
-                    <a href="{{../projectRoot}}classes/{{name}}.html">
-                        {{displayName}}
-                    </a>
-                </li>
+                <a href="{{../projectRoot}}classes/{{name}}.html" class="list-group-item">
+                  <span class="glyphicon glyphicon-chevron-right"></span>
+                  {{displayName}}
+                </a>
             {{/moduleClasses}}
-            </ul>
+            </div>
         {{/if}}
     </div>
 
@@ -77,19 +78,14 @@
         {{#if subModules}}
             <p>This module is a rollup of the following modules:</p>
 
-            <ul class="module-submodules">
+            <div class="list-group">
             {{#subModules}}
-                <li class="module-submodule">
-                    <a href="{{../projectRoot}}modules/{{name}}.html">
-                        {{displayName}}
-                    </a>
-
-                    <div class="module-submodule-description">
-                        {{{description}}}
-                    </div>
-                </li>
+                <a href="{{../projectRoot}}modules/{{name}}.html" class="list-group-item active">
+                  <h4 class="list-group-item-heading">{{displayName}}</h4>
+                  <p class="list-group-item-text">{{{description}}}</p>
+                </a>
             {{/subModules}}
-            </ul>
+            </div>
         {{/if}}
     </div>
 </div>
