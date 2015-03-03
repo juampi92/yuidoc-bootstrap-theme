@@ -3,11 +3,10 @@
 <head>
     <meta charset="utf-8">
     <title>{{htmlTitle}}</title>
-    <link rel="stylesheet" href="{{projectAssets}}/vendor/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="{{projectAssets}}/vendor/bootstrap/css/bootstrap-3.3.1.min.css">
     <link rel="stylesheet" href="{{yuiGridsUrl}}">
     <link rel="stylesheet" href="{{projectAssets}}/vendor/prettify/prettify-min.css">
-<!--     <link rel="stylesheet" href="{{projectAssets}}/css/main.css" id="site_styles">
- -->    <link rel="stylesheet" href="{{projectAssets}}/css/custom.css">
+    <link rel="stylesheet" href="{{projectAssets}}/css/custom.css">
     <link rel="shortcut icon" type="image/png" href="{{projectAssets}}/favicon.png">
 </head>
 <body>
@@ -22,12 +21,12 @@
           {{/if}}
         </a>
       </div>
-      <!--<p class="navbar-text">
+      <p class="navbar-text">
         API Docs for Version: <b>{{projectVersion}}</b>
       </p>
        <form class="navbar-form pull-right">
         <input type="text" class="form-control" placeholder="Search for classes/modules..." data-obj='[{{#search classes allModules}}{{/search}}]'>
-      </form> -->
+      </form>
     </div>
   </nav>
 <div class="container">
@@ -47,8 +46,10 @@
       </div>
   </div>
 </div>
-<script src="{{projectAssets}}/vendor/jquery/jquery-1.11.2.js"></script>
-<script src="{{projectAssets}}/vendor/bootstrap/js/bootstrap.js"></script>
+<script src="{{projectAssets}}/vendor/jquery/jquery-1.11.2.min.js"></script>
+<script src="{{projectAssets}}/vendor/bootstrap/js/bootstrap-3.3.1.min.js"></script>
+<script src="{{projectAssets}}/vendor/bootstrap/js/bootstrap-typeahead.js"></script>
+
 <script src="{{projectAssets}}/vendor/prettify/prettify-min.js"></script>
 <script src="{{projectAssets}}/js/yuidoc-bootstrap.js"></script>
 <script>prettyPrint();</script>
